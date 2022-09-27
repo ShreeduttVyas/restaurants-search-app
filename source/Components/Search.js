@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, TextInput, View } from "react-native";
 import { Fontisto } from "@expo/vector-icons"
 import { elevation } from "../Shared/Styles";
-const Search = () => {
+const Search = ({setTerm}) => {
+    const [input,setInput] = useState("")
+
+    const handleEndEditing = () => {
+        if(!input) return
+        setTerm(input)
+        setInput("")
+    }
+
     return(
         <View style={[styles.container, elevation]}>
             <Fontisto name="search" size={25}/>
             <TextInput 
                 placeholder="Restaurants, food"  
                 style={styles.input}
+                onChangeText = { (text) => {setInput(text)}}
+                onEndEditing = {handleEndEditing}
+                value={input}
             />
         </View>
     )
