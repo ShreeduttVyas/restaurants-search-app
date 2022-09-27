@@ -3,16 +3,16 @@ import { View, StyleSheet, Text, Image } from "react-native";
 import { elevation } from "../Shared/Styles";
 
 
-export default function CategoryItem(){
+export default function CategoryItem({name, imageUrl,index}){
     return(
-        <View style={[styles.container,elevation]}>
+        <View style={[styles.container,elevation, index == 0 ? {marginleft: 25} : {marginRight: 25}]}>
             <View style={styles.imageContainer}>
                 <Image 
                     style={styles.image}
-                    source={require("../../assets/burger.png")}
+                    source={imageUrl}
                 />
             </View>
-            <Text style={styles.header}>Burger</Text>
+            <Text style={styles.header}>{name}</Text>
         </View>
     );
 }
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         marginVertical: 15,
         marginHorizontal: 25,
-        backgroundColor: "rgb(241,186,87)",
+        backgroundColor: "white",
         alignItems: "center",
         justifyContent: "center",
     },
