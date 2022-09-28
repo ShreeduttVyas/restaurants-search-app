@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { View, Text, StyleSheet, ActivityIndicator, FlatList } from "react-native";
 import useRestaurants from "../Hooks/useRestaurants";
+import RestaurantItem from "./RestaurantItem";
 
 
 export default function Restaurants({ term }){
@@ -27,8 +28,9 @@ export default function Restaurants({ term }){
                 data={data}
                 keyExtractor ={(restaurant) => restaurant.id}
                 renderItem={({item}) => (
-                    <Text>{item.name}</Text>
+                   <RestaurantItem restaurant={item}/>
                 )}
+                showsVerticalScrollIndicator = {false}
             />
        </View>
     );
