@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
+import React,{ useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Categories from './source/Components/Categories';
 
@@ -42,7 +42,7 @@ export default function App() {
         setTerm = {setTerm}
       />
       <Categories categories={commonCategories } term={term} setTerm={setTerm}  />
-      <Restaurants />
+      <Restaurants term={term} />
       <StatusBar style="auto" />
     </View>
   );
