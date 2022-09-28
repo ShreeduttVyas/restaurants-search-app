@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Categories from './source/Components/Categories';
 
 import Header from './source/Components/Header';
+import Restaurants from './source/Components/Restaurants';
 import Search from './source/Components/Search';
 
 export default function App() {
@@ -41,6 +42,7 @@ export default function App() {
         setTerm = {setTerm}
       />
       <Categories categories={commonCategories } term={term} setTerm={setTerm}  />
+      <Restaurants />
       <StatusBar style="auto" />
     </View>
   );
