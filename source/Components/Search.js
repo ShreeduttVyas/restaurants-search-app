@@ -17,7 +17,7 @@ const Search = ({setTerm}) => {
             <TextInput 
                 placeholder="Restaurants, food"  
                 style={styles.input}
-                onChangeText = { (text) => {setInput(text)}}
+                onChangeText = { (text) => {setInput(text); setTerm(text)}}
                 onEndEditing = {handleEndEditing}
                 value={input}
             />
