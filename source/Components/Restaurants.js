@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
+import { View, Text, StyleSheet, ActivityIndicator, FlatList } from "react-native";
 import useRestaurants from "../Hooks/useRestaurants";
 
 
@@ -14,9 +14,22 @@ export default function Restaurants({ term }){
 
     if (loading) return <ActivityIndicator size="large"  marginVertival={30}/>
 
+    if(error) return(
+        <View style={styles.conatiner} >
+            <Text style={styles.header}>{error}</Text>
+        </View>
+    );
+
     return(
-       <View style={styles.conatiner} >
+       <View style={styles.conatiner}>
             <Text style={styles.header}>Top Restaurants</Text>
+            <FlatList
+                data={data}
+                keyExtractor ={(restaurant) => restaurant.id}
+                renderItem={({item}) => (
+                    <Text>{item.name}</Text>
+                )}
+            />
        </View>
     );
 }
@@ -25,12 +38,12 @@ const styles = StyleSheet.create({
     conatiner:{
         marginHorizontal: 25,
         MarginTop: 15,
-        flex: 1,
+        
     },
     header:{
         fontWeight: "bold",
         fontSize: 20,
         paddingBottom: 10,
-        height: 100,
+        
     }
 })
