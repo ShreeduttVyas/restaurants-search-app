@@ -36,23 +36,26 @@ export default function App() {
     }
   ]
   return (
-    <View >
+    <View style={styles.container}>
       <Header />
       <Search 
         setTerm = {setTerm}
       />
       <Categories categories={commonCategories } term={term} setTerm={setTerm}  />
-      <Restaurants term={term} />
+      <View style={styles.restaurantView}>      
+        <Restaurants term={term} />
+      </View>
+
       <StatusBar style="auto" />
     </View>
   );
 }
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
+const styles = StyleSheet.create({
+  container: {
+    height: "100%"
+ },
+ restaurantView: {
+  flex: 1
+ }
+});

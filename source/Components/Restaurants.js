@@ -11,7 +11,7 @@ export default function Restaurants({ term }){
             searchRestaurants(term);
         }, [term]);
     
-    console.log({ data: data, loading, error });
+    console.log({data: data, loading, error });
 
     if (loading) return <ActivityIndicator size="large"  marginVertival={30}/>
 
@@ -31,6 +31,7 @@ export default function Restaurants({ term }){
                    <RestaurantItem restaurant={item}/>
                 )}
                 showsVerticalScrollIndicator = {false}
+                initialNumToRender={20}
             />
        </View>
     );
@@ -39,8 +40,8 @@ export default function Restaurants({ term }){
 const styles = StyleSheet.create({
     conatiner:{
         marginHorizontal: 25,
-        MarginTop: 15,
-        
+        marginVertical: 15,
+        paddingBottom: 50
     },
     header:{
         fontWeight: "bold",
