@@ -6,7 +6,7 @@ import { elevation } from '../Shared/Styles'
 function RestaurantItem( {restaurant, navigation}) {
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate("Restaurant") }
+      onPress={() => navigation.navigate("Restaurant", {id: restaurant.id}) }
     >
       <View style={[styles.conatiner,elevation]}>
         <Image source={{uri: restaurant.image_url}} style={styles.image}/> 
