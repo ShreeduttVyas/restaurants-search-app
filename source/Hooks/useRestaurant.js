@@ -19,7 +19,7 @@ export default () => {
         try{
             const response = await yelp.get(`/${id}`,{});
                 setresult({
-                    data: response.data,
+                    data: response.data.photos,
                     loading: false,
                     error: null
                 })
