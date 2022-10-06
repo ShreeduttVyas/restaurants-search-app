@@ -7,7 +7,7 @@ import Header from "../Components/Header";
 import Restaurants from "../Components/Restaurants";
 import Search from "../Components/Search";
 
-const HomeScreen = ( ) => {
+const HomeScreen = ({navigation}) => {
     
     const [term, setTerm] = useState("")
     const commonCategories= [
@@ -45,7 +45,7 @@ const HomeScreen = ( ) => {
             />
             <Categories categories={commonCategories } term={term} setTerm={setTerm}  />
             <View style={styles.restaurantView}>      
-                <Restaurants term={term} />
+                <Restaurants term={term} navigation={navigation} />
             </View>
 
             <StatusBar style="auto" />

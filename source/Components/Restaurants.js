@@ -4,7 +4,7 @@ import useRestaurants from "../Hooks/useRestaurants";
 import RestaurantItem from "./RestaurantItem";
 
 
-export default function Restaurants({ term }){
+export default function Restaurants({ term , navigation }){
     const[{data, loading, error}, searchRestaurants] = useRestaurants();
 
     useEffect( () => {
@@ -28,7 +28,7 @@ export default function Restaurants({ term }){
                 data={data}
                 keyExtractor ={(restaurant) => restaurant.id}
                 renderItem={({item}) => (
-                   <RestaurantItem restaurant={item}/>
+                   <RestaurantItem restaurant={item} navigation={navigation}/>
                 )}
                 showsVerticalScrollIndicator = {false}
                 initialNumToRender={20}
