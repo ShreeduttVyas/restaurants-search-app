@@ -4,7 +4,7 @@ import useRestaurant from "../Hooks/useRestaurant";
 
 export default function RestaurantScreen({ navigation, route }) {
   const [{ data, loading, error }, searchRestaurant] = useRestaurant();
-  console.log(id);
+  console.log(route.params.id);
   const dimensions = Dimensions.get("window");
   const imageWidth = dimensions.width;
   const imageHeight = Math.round((dimensions.height * 9) / 16);

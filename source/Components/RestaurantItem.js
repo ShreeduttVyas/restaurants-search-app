@@ -60,4 +60,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withNavigation(RestaurantItem);
+export default RestaurantItem;

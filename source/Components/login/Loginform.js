@@ -15,7 +15,7 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default function Loginform({ navigation }) {
   const LoginFormSchema = Yup.object().shape({
-    email: Yup.string().email().required("An enail is required"),
+    email: Yup.string().email().required("An email is required"),
     password: Yup.string()
       .required()
       .min(8, "Your password has to have 8 characters"),
