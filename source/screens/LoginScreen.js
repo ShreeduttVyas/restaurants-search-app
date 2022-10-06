@@ -2,13 +2,13 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 import React from 'react';
 import Loginform from '../Components/login/Loginform';
 
-export default function LoginScreen() {
+export default function LoginScreen({navigation}) {
   return (
     <View style={styles.container}>
       <View style={styles.logocontainer}>
         <Image source={require("../../assets/burger.png")} style={styles.logo} />
       </View>
-      <Loginform />
+      <Loginform navigation={navigation}/>
     </View>
   )
 }

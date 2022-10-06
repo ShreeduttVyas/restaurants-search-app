@@ -2,13 +2,13 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 import React from 'react';
 import SignupForm from '../Components/Signup/SignupForm';
 
-export default function SignupScreen() {
+export default function SignupScreen({navigation}) {
   return (
     <View style={styles.container}>
       <View style={styles.logocontainer}>
         <Image source={require("../../assets/burger.png")} style={styles.logo} />
       </View>
-    <SignupForm /> 
+    <SignupForm navigation={navigation} /> 
     </View>
   )
 }

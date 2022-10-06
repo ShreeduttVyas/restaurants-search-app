@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Validator from 'email-validator';
 
-export default function Loginform() {
+export default function Loginform({navigation}) {
     const LoginFormSchema = Yup.object().shape({
         email: Yup.string().email().required('An enail is required'),
         password: Yup.string()
@@ -60,7 +60,9 @@ export default function Loginform() {
                         </Pressable>
                         <View style={styles.signupContainer}>
                             <Text style={styles.signupText}>Don't have an account?</Text>
-                            <TouchableOpacity style>
+                            <TouchableOpacity style
+                                onPress={() => navigation.navigate('Signup')}
+                            >
                                 <Text style={{ color: '#6BB0F5' }}>Sign Up</Text>
                             </TouchableOpacity>
                         </View>
