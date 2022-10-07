@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
 
 import Categories from "../Components/Categories";
@@ -44,8 +43,6 @@ const HomeScreen = ({ navigation }) => {
       <View style={styles.restaurantView}>
         <Restaurants term={term} navigation={navigation} />
       </View>
-
-      <StatusBar style="auto" />
     </View>
   );
 };
