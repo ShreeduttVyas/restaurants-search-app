@@ -1,6 +1,6 @@
 import React from "react";
 import { View, StyleSheet, Text, Image, TouchableOpacity } from "react-native";
-import { elevation } from "../SharedStyles/Styles";
+import { elevation } from "../../SharedStyles/Styles";
 
 export default function CategoryItem({
   name,

@@ -6,7 +6,7 @@ import {
   ActivityIndicator,
   FlatList,
 } from "react-native";
-import useRestaurants from "../Hooks/useRestaurants";
+import useRestaurants from "../../Hooks/useRestaurants";
 import RestaurantItem from "./RestaurantItem";
 
 export default function Restaurants({ term, navigation }) {

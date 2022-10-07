@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, TextInput, View } from "react-native";
 import { Fontisto } from "@expo/vector-icons";
-import { elevation } from "../SharedStyles/Styles";
+import { elevation } from "../../SharedStyles/Styles";
 const Search = ({ setTerm }) => {
   const [input, setInput] = useState("");
 

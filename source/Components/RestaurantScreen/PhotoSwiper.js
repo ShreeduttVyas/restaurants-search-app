@@ -10,8 +10,8 @@ export default function PhotoSwiper({ data }) {
   return (
     <View
       style={{
-        borderBottomWidth: 3,
-        borderBottomColor: "darkgrey",
+        borderBottomWidth: 2,
+        borderBottomColor: "black",
       }}
     >
       <SwiperFlatList

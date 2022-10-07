@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 
-import Categories from "../Components/Categories";
-import Header from "../Components/Header";
-import Restaurants from "../Components/Restaurants";
-import Search from "../Components/Search";
+import Categories from "../Components/HomeScreen/Categories";
+import Header from "../Components/HomeScreen/Header";
+import Restaurants from "../Components/HomeScreen/Restaurants";
+import Search from "../Components/HomeScreen/Search";
 
 const HomeScreen = ({ navigation }) => {
   const [term, setTerm] = useState("");
