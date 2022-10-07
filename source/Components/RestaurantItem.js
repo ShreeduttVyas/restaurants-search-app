@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { withNavigation } from "react-navigation";
-import { elevation } from "../Shared/Styles";
+import { elevation } from "../SharedStyles/Styles";
 
 function RestaurantItem({ restaurant, navigation }) {
   return (
