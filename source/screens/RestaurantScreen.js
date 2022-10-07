@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { FlatList, Text, View, Image, Dimensions } from "react-native";
 import useRestaurant from "../Hooks/useRestaurant";
 import NavigationHeader from "../Components/Shared/NavigationHeader";
-// import CarouselView from "../Components/Restaurant/CasaroulView";
+import PhotoSwiper from "../Components/Restaurant/PhotoSwiper";
+
 export default function RestaurantScreen({ navigation, route }) {
   const [{ data, loading, error }, searchRestaurant] = useRestaurant();
   //console.log(route.params.id);
@@ -24,7 +25,7 @@ export default function RestaurantScreen({ navigation, route }) {
         (
           <>
             <NavigationHeader navigation={navigation} title={data.name} />
-            <FlatList
+            {/* <FlatList
               data={data.photos}
               keyExtractor={(photo) => photo}
               renderItem={({ item }) => (
@@ -33,8 +34,8 @@ export default function RestaurantScreen({ navigation, route }) {
                   style={{ height: imageHeight, width: imageWidth }}
                 />
               )}
-            />
-            {/* <CarouselView data={data.photos} /> */}
+            /> */}
+            <PhotoSwiper data={data.photos} />
           </>
         ))}
     </View>
