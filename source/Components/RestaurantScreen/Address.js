@@ -2,14 +2,14 @@ import React from "react";
 import { Linking, Pressable, StyleSheet, Text, View } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 
-const Address = ({ address }) => {
+const Address = ({ address, coordinates }) => {
   return (
     <View>
       <Pressable
         style={styles.container}
         onPress={() => {
-          var lat = address.coordinates.latitude;
-          var lng = address.coordinates.longitude;
+          var lat = coordinates.latitude;
+          var lng = coordinates.longitude;
           var scheme =
             Platform.OS === "ios"
               ? "https://maps.apple.com/?daddr="
@@ -21,7 +21,7 @@ const Address = ({ address }) => {
       >
         <MaterialIcons name="location-pin" size={30} style={styles.icon} />
         <Text style={styles.addressText}>
-          {address.location.display_address.join(", ")}
+          {address.display_address.join(", ")}
         </Text>
       </Pressable>
     </View>

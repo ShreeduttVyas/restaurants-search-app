@@ -25,10 +25,10 @@ export default function RestaurantHours({ hours, list }) {
     return WeekfromToday.map((hour, index) => {
       return (
         <View key={index} style={{ flexDirection: "row" }}>
-          <View style={{ width: 70 }}>
+          <View style={{ flex: 1 }}>
             <Text style={styles.Text}>{currentWeek[index]}</Text>
           </View>
-          <View style={{ width: 130 }}>
+          <View style={{ flex: 1 }}>
             <Text style={styles.Text}>
               {HourFormater(hour.start)}
               {" - "}
@@ -54,5 +54,6 @@ const styles = StyleSheet.create({
     fontSize: 13,
     paddingTop: 6,
     paddingBottom: 6,
+    paddingLeft: 6,
   },
 });

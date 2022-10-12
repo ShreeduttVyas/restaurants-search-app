@@ -20,7 +20,7 @@ const RestaurantTiming = ({ data }) => {
         style={{ flexDirection: "row" }}
       >
         <MaterialIcons name="access-time" size={30} style={styles.icon} />
-        {/* //subcontainer for hours, checking if we have the values or not */}
+        {/* subcontainer for hours, checking if we have the values or not */}
         {data.hours === undefined ? (
           <Text style={styles.Text}>Info not Available</Text>
         ) : (
@@ -34,7 +34,7 @@ const RestaurantTiming = ({ data }) => {
                 <RestaurantHours hours={data.hours[0].open} list={false} />
               </>
             ) : (
-              <View style={{ flexDirection: "column" }}>
+              <View style={{ flexDirection: "column", width: "80%" }}>
                 <RestaurantHours hours={data.hours[0].open} list={true} />
               </View>
             )}
