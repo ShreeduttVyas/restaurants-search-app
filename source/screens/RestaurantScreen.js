@@ -25,7 +25,7 @@ export default function RestaurantScreen({ navigation, route }) {
           <NavigationHeader navigation={navigation} title={data.name} />
           <PhotoSwiper photos={data.photos} />
           <Address address={data.location} coordinates={data.coordinates} />
-          <ContactInfo phoneNum={data} />
+          <ContactInfo phoneNum={data.phone} />
           <RestaurantTiming data={data} />
         </>
       )}

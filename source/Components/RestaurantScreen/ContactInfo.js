@@ -8,11 +8,11 @@ const ContactInfo = ({ phoneNum }) => {
       <Pressable
         style={styles.container}
         onPress={() => {
-          Linking.openURL(`tel:${phoneNum.phone}`);
+          Linking.openURL(`tel:${phoneNum}`);
         }}
       >
         <MaterialIcons name="phone" size={30} style={styles.icon} />
-        <Text style={styles.ContactText}>{phoneNum.phone}</Text>
+        <Text style={styles.ContactText}>{phoneNum}</Text>
       </Pressable>
     </View>
   );
