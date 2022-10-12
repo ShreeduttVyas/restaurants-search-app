@@ -6,7 +6,7 @@ const dimensions = Dimensions.get("window");
 const imageWidth = dimensions.width;
 const imageHeight = Math.round((dimensions.height * 9) / 22);
 
-export default function PhotoSwiper({ data }) {
+export default function PhotoSwiper({ photos }) {
   return (
     <View
       style={{
@@ -17,7 +17,7 @@ export default function PhotoSwiper({ data }) {
       <SwiperFlatList
         showPagination
         paginationStyleItem={{ width: 8, height: 8 }}
-        data={data}
+        data={photos}
         renderItem={({ item }) => (
           <View style>
             <Image

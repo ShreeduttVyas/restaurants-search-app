@@ -1,23 +1,23 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import LoginScreen from "../screens/LoginScreen";
-import SignupScreen from "../screens/SignupScreen";
 import React from "react";
+import HomeScreen from "../screens/HomeScreen";
+import RestaurantScreen from "../screens/RestaurantScreen";
 
 const Stack = createNativeStackNavigator();
 
-const SigninStack = () => {
+const SignedinStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Login"
-        component={LoginScreen}
+        name="Home"
+        component={HomeScreen}
         options={{
           headerShown: false,
         }}
       />
       <Stack.Screen
-        name="Signup"
-        component={SignupScreen}
+        name="Restaurant"
+        component={RestaurantScreen}
         options={{
           headerShown: false,
         }}
@@ -26,4 +26,4 @@ const SigninStack = () => {
   );
 };
 
-export default SigninStack;
+export default SignedinStack;
