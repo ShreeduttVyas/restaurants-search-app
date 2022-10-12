@@ -19,7 +19,7 @@ export default function Navigation() {
   );
   return (
     <NavigationContainer>
-      {currentUser ? <DrawerNavigator /> : <SigninStack />}
+      {currentUser ? <SignedinStack /> : <SigninStack />}
     </NavigationContainer>
   );
 }
