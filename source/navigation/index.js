@@ -1,9 +1,10 @@
 import { NavigationContainer } from "@react-navigation/native";
 import SigninStack from "./SigninStack";
 import React, { useEffect, useState } from "react";
-import SignedinStack from "./SignedinStack";
+//import SignedinStack from "./SignedinStack";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import DrawerNavigator from "./DrawerNavigator";
+//import DrawerNavigator from "./DrawerNavigator";
+import BottomTab from "./BottomTab";
 
 export default function Navigation() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -19,7 +20,7 @@ export default function Navigation() {
   );
   return (
     <NavigationContainer>
-      {currentUser ? <SignedinStack /> : <SigninStack />}
+      {currentUser ? <BottomTab /> : <SigninStack />}
     </NavigationContainer>
   );
 }

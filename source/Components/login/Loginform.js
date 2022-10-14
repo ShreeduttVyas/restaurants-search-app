@@ -25,7 +25,6 @@ export default function Loginform({ navigation }) {
     try {
       const auth = getAuth();
       await signInWithEmailAndPassword(auth, email, password);
-      navigation.navigate("drawer");
     } catch (error) {
       console.log(error.message), Alert.alert(error.message);
     }

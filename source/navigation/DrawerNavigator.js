@@ -2,12 +2,14 @@ import React from "react";
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
-  DrawerItemList,
+  // DrawerItemList,
   DrawerItem,
 } from "@react-navigation/drawer";
 import HomeScreen from "../screens/HomeScreen";
 import { UserSignOut } from "../Components/SignOut/UserSignOut";
 import { Alert } from "react-native";
+import SignedinStack from "./SignedinStack";
+import RestaurantScreen from "../screens/RestaurantScreen";
 function CustomDrawercomponent_SignOut(props) {
   return (
     <DrawerContentScrollView {...props}>
@@ -33,9 +35,11 @@ const DrawerNavigator = () => {
       useLegacyImplementation
       drawerContent={(props) => <CustomDrawercomponent_SignOut {...props} />}
       screenOptions={{ drawerPosition: "right", headerShown: false }}
-      initialRouteName={"HomeScreen"}
+      initialRouteName={"SignedinStack"}
     >
-      <Drawer.Screen name="HomeScreen" component={HomeScreen} />
+      <Drawer.Screen name="SignedinStack" component={SignedinStack} />
+      <Drawer.Screen name="Home" component={HomeScreen} />
+      <Drawer.Screen name="Restaurant" component={RestaurantScreen} />
     </Drawer.Navigator>
   );
 };
