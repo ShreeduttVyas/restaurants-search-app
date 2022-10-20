@@ -13,7 +13,6 @@ export default () => {
   const [result, setResult] = useState();
 
   async function getProfile({ uid }) {
-    console.log("In get");
     try {
       const docRef = doc(db, "users", uid);
       const docSnap = await getDoc(docRef);

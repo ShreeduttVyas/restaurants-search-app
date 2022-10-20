@@ -1,13 +1,14 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { elevation } from "../../SharedStyles/Styles";
-
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 function RestaurantItem({ restaurant, navigation }) {
   return (
-    <TouchableOpacity
-      onPress={() => navigation.navigate("Restaurant", { id: restaurant.id })}
-    >
-      <View style={[styles.conatiner, elevation]}>
+    <View>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Restaurant", { id: restaurant.id })}
+        style={[styles.container, elevation]}
+      >
         <Image source={{ uri: restaurant.image_url }} style={styles.image} />
         <View style={styles.infoContainer}>
           <Text style={styles.header}>{restaurant.name}</Text>
@@ -16,13 +17,33 @@ function RestaurantItem({ restaurant, navigation }) {
             <Text style={styles.money}>{restaurant.price}</Text>
           </View>
         </View>
-      </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => console.log("Touch: av")}
+        style={{
+          position: "absolute",
+          right: 50,
+          bottom: 20,
+          height: 36,
+          width: 56,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <View>
+          <MaterialCommunityIcons
+            name={1 == 2 ? "bookmark-plus-outline" : "bookmark-check-outline"}
+            size={30}
+            style={{}}
+          />
+        </View>
+      </TouchableOpacity>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  conatiner: {
+  container: {
     backgroundColor: "white",
     height: 100,
     alignSelf: "stretch",
