@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 const NavigationHeader = ({ navigation, title }) => {
-  console.log(title);
   return (
     <View style={styles.container}>
       <View style={{ flex: 1 }}>

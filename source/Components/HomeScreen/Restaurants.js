@@ -9,14 +9,24 @@ import {
 import useRestaurants from "../../Hooks/useRestaurants";
 import RestaurantItem from "./RestaurantItem";
 
-export default function Restaurants({ term, navigation }) {
+export default function Restaurants({ term, navigation, Screenop }) {
+  // if (Screenop == "Home") {
   const [{ data, loading, error }, searchRestaurants] = useRestaurants();
+  // }
+  // if (Screenop == "Fav") {
+  //   const [profileData, getProfile] = useUserprofile();
+  //   const user = getAuth().currentUser;
+  //   useEffect(() => {
+  //     if (user) {
+  //       getProfile({ uid: user.uid });
+  //     }
+  //   }, []);
+  // }
 
   useEffect(() => {
     searchRestaurants(term);
   }, [term]);
-
-  //console.log({data, loading, error });
+  //console.log({ data, loading, error });
 
   if (loading) return <ActivityIndicator size="large" marginVertival={30} />;
 

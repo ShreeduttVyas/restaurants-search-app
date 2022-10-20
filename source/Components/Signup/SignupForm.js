@@ -11,7 +11,13 @@ import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import Validator from "email-validator";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
+
+import createFirestore from "../../Hooks/useCreateUser";
 
 export default function Signupform({ navigation }) {
   const SignupFormSchema = Yup.object().shape({
@@ -24,11 +30,20 @@ export default function Signupform({ navigation }) {
       .min(8, "Your password has to have 8 characters"),
   });
 
-  const onSignup = async (email, password) => {
+  const onSignup = async (email, username, password) => {
     try {
       const auth = getAuth();
       await createUserWithEmailAndPassword(auth, email, password);
-      navigation.navigate("Home");
+      //
+      const user = auth.currentUser;
+      if (user) {
+        if (user) {
+          await createFirestore(user.email, username, user.uid, []);
+        } else {
+          console.log("sign up: cannot allocate user");
+        }
+      }
+      //
     } catch (error) {
       console.log(error.message), Alert.alert(error.message);
     }
@@ -39,7 +54,7 @@ export default function Signupform({ navigation }) {
       <Formik
         initialValues={{ email: "", username: "", password: "" }}
         onSubmit={(values) => {
-          onSignup(values.email, values.password);
+          onSignup(values.email, values.username, values.password);
         }}
         validationSchema={SignupFormSchema}
         validateOnMount={true}

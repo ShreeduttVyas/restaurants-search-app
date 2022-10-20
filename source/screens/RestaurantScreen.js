@@ -11,7 +11,10 @@ export default function RestaurantScreen({ navigation, route }) {
   const [{ data, loading, error }, searchRestaurant] = useRestaurant();
 
   useEffect(() => {
-    if (route.params?.id) searchRestaurant(route.params.id);
+    if (route.params?.id) {
+      console.log(route.params?.id);
+      searchRestaurant(route.params.id);
+    }
   }, []);
 
   if (loading) return <Text>Loading...</Text>;

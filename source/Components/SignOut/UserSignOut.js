@@ -5,7 +5,6 @@ export const UserSignOut = () => {
     const auth = getAuth();
     signOut(auth)
       .then(() => {
-        //   Alert.alert(Alert, "You are Signed out");
         resolve("You are Signed out");
       })
       .catch((error) => {

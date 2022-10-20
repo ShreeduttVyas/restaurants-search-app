@@ -3,6 +3,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import DrawerNavigator from "./DrawerNavigator";
 import ProfileScreen from "../screens/ProfileScreen";
+import FavouritesScreen from "../screens/FavouritesScreen";
 
 const BottomTab = () => {
   const BottomTab = createBottomTabNavigator();
@@ -14,6 +15,7 @@ const BottomTab = () => {
       initialRouteName={"Root"}
     >
       <BottomTab.Screen name="Root" component={DrawerNavigator} />
+      <BottomTab.Screen name="Fav" component={FavouritesScreen} />
       <BottomTab.Screen name="Profile" component={ProfileScreen} />
     </BottomTab.Navigator>
   );
