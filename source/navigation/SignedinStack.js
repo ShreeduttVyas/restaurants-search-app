@@ -8,10 +8,10 @@ const Stack = createNativeStackNavigator();
 const SignedinStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Home"
+      initialRouteName="HomeScreen"
       screenOptions={{ headerShown: false, swipeEnabled: false }}
     >
-      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="HomeScreen" component={HomeScreen} />
       <Stack.Screen name="Restaurant" component={RestaurantScreen} />
     </Stack.Navigator>
   );

@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { elevation } from "../../SharedStyles/Styles";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-function RestaurantItem({ restaurant, navigation }) {
+import {
+  AddFirestore_rid,
+  DeleteFirestore_rid,
+} from "../../Hooks/useCreateUser";
+import { getAuth } from "firebase/auth";
+
+function RestaurantItem({ restaurant, navigation, isFavourite }) {
+  const [fav, setFav] = useState(isFavourite);
   return (
     <View>
       <TouchableOpacity
@@ -19,7 +26,15 @@ function RestaurantItem({ restaurant, navigation }) {
         </View>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => console.log("Touch: av")}
+        onPress={() => {
+          setFav(!fav);
+          const user = getAuth().currentUser;
+          if (user) {
+            !fav
+              ? AddFirestore_rid(user.uid, restaurant.id)
+              : DeleteFirestore_rid(user.uid, restaurant.id);
+          }
+        }}
         style={{
           position: "absolute",
           right: 50,
@@ -32,9 +47,8 @@ function RestaurantItem({ restaurant, navigation }) {
       >
         <View>
           <MaterialCommunityIcons
-            name={1 == 2 ? "bookmark-plus-outline" : "bookmark-check-outline"}
+            name={fav ? "bookmark-check-outline" : "bookmark-plus-outline"}
             size={30}
-            style={{}}
           />
         </View>
       </TouchableOpacity>

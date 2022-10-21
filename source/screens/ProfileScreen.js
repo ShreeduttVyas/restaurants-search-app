@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import React, { useEffect } from "react";
 import useUserprofile from "../Hooks/useUserprofile";
 import { getAuth } from "firebase/auth";
+import { Card } from "react-native-elements";
 import { AddFirestore_rid, DeleteFirestore_rid } from "../Hooks/useCreateUser";
 
 export default function ProfileScreen() {
@@ -16,19 +17,18 @@ export default function ProfileScreen() {
   return (
     <View style={styles.container}>
       {profileData && (
-        <>
-          <TouchableOpacity
-            style={{ backgroundColor: "red" }}
-            onPress={() => {
-              console.log("touch");
-            }}
-          >
-            <Text>ProfileScreen</Text>
-          </TouchableOpacity>
-          <Text>Username: {profileData.username}</Text>
-          <Text>email: {profileData.email}</Text>
-          <Text>Rid: {profileData.rid}</Text>
-        </>
+        <Card style={{ borderRadius: 20 }}>
+          <Card.Title style={styles.Title}>Profile</Card.Title>
+          <Card.Divider />
+          <View style={styles.subContainer}>
+            <Text style={styles.subHeader}>Username:</Text>
+            <Text style={styles.Text}>{profileData.username}</Text>
+          </View>
+          <View style={styles.subContainer}>
+            <Text style={styles.subHeader}>Mail:</Text>
+            <Text style={styles.Text}>{profileData.email}</Text>
+          </View>
+        </Card>
       )}
     </View>
   );
@@ -37,7 +37,24 @@ export default function ProfileScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    //  borderRadius: 20,
+  },
+  subContainer: {
+    padding: 10,
+    backgroundColor: "lightgrey",
+    borderRadius: 10,
+    flexDirection: "row",
+    marginBottom: 15,
+  },
+  Title: {
+    fontSize: 30,
+  },
+  subHeader: {
+    fontSize: 15,
+    backgroundColor: "lightgrey",
+    fontWeight: "450",
+  },
+  Text: {
+    marginStart: 20,
   },
 });
