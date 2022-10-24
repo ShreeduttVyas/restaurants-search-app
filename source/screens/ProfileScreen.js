@@ -4,6 +4,7 @@ import useUserprofile from "../Hooks/useUserprofile";
 import { getAuth } from "firebase/auth";
 import { Card } from "react-native-elements";
 import { AddFirestore_rid, DeleteFirestore_rid } from "../Hooks/useCreateUser";
+import { elevation } from "../SharedStyles/Styles";
 
 export default function ProfileScreen() {
   const user = getAuth().currentUser;
@@ -17,14 +18,14 @@ export default function ProfileScreen() {
   return (
     <View style={styles.container}>
       {profileData && (
-        <Card style={{ borderRadius: 20 }}>
+        <Card>
           <Card.Title style={styles.Title}>Profile</Card.Title>
           <Card.Divider />
-          <View style={styles.subContainer}>
+          <View style={[styles.subContainer, elevation]}>
             <Text style={styles.subHeader}>Username:</Text>
             <Text style={styles.Text}>{profileData.username}</Text>
           </View>
-          <View style={styles.subContainer}>
+          <View style={[styles.subContainer, elevation]}>
             <Text style={styles.subHeader}>Mail:</Text>
             <Text style={styles.Text}>{profileData.email}</Text>
           </View>
@@ -37,7 +38,7 @@ export default function ProfileScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //  borderRadius: 20,
+    backgroundColor: "#fff",
   },
   subContainer: {
     padding: 10,

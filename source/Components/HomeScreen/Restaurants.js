@@ -21,7 +21,7 @@ function ceckFav(id, Rid) {
   return checker;
 }
 
-export default function Restaurants({ term, navigation, Screenop }) {
+export default function Restaurants({ term, navigation }) {
   //
   const [profileData, getProfile] = useUserprofile();
 
@@ -31,24 +31,12 @@ export default function Restaurants({ term, navigation, Screenop }) {
       getProfile({ uid: user.uid });
     }
   }, [term]);
-  //
-  // if (Screenop == "Home") {
+
   const [{ data, loading, error }, searchRestaurants] = useRestaurants();
-  // }
-  // if (Screenop == "Fav") {
-  //   const [profileData, getProfile] = useUserprofile();
-  //   const user = getAuth().currentUser;
-  //   useEffect(() => {
-  //     if (user) {
-  //       getProfile({ uid: user.uid });
-  //     }
-  //   }, []);
-  // }
 
   useEffect(() => {
     searchRestaurants(term);
   }, [term]);
-  //console.log({ data, loading, error });
 
   if (loading) return <ActivityIndicator size="large" marginVertival={30} />;
 
@@ -73,6 +61,7 @@ export default function Restaurants({ term, navigation, Screenop }) {
                   restaurant={item}
                   navigation={navigation}
                   isFavourite={true}
+                  StackTitle={"SignedinStack"}
                 />
               );
             return (
@@ -80,6 +69,7 @@ export default function Restaurants({ term, navigation, Screenop }) {
                 restaurant={item}
                 navigation={navigation}
                 isFavourite={false}
+                StackTitle={"SignedinStack"}
               />
             );
           }}

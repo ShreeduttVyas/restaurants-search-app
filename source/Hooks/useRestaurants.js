@@ -9,7 +9,6 @@ export default () => {
   });
 
   const searchRestaurants = async (term) => {
-    console.log("IN");
     setResults({
       data: null,
       loading: true,

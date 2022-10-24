@@ -8,11 +8,14 @@ const Stack = createNativeStackNavigator();
 const SignedinStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName="HomeScreen"
+      initialRouteName="Favorite"
       screenOptions={{ headerShown: false, swipeEnabled: false }}
     >
-      <Stack.Screen name="HomeScreen" component={HomeScreen} />
-      <Stack.Screen name="Restaurant" component={RestaurantScreen} />
+      <Stack.Screen name="Favorite" component={FavouritesScreen} />
+      <Stack.Screen
+        name="RestaurantfromFavorite"
+        component={RestaurantScreen}
+      />
     </Stack.Navigator>
   );
 };

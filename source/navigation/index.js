@@ -1,9 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import SigninStack from "./SigninStack";
 import React, { useEffect, useState } from "react";
-//import SignedinStack from "./SignedinStack";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-//import DrawerNavigator from "./DrawerNavigator";
 import BottomTab from "./BottomTab";
 
 export default function Navigation() {

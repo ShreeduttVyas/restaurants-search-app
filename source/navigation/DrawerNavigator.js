@@ -2,15 +2,12 @@ import React from "react";
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
-  DrawerItemList,
   DrawerItem,
 } from "@react-navigation/drawer";
-import HomeScreen from "../screens/HomeScreen";
 import { UserSignOut } from "../Components/SignOut/UserSignOut";
 import { Alert } from "react-native";
 import SignedinStack from "./SignedinStack";
-import RestaurantScreen from "../screens/RestaurantScreen";
-import { RotateInUpLeft } from "react-native-reanimated";
+
 function CustomDrawercomponent_SignOut(props) {
   return (
     <DrawerContentScrollView {...props}>
@@ -25,9 +22,6 @@ function CustomDrawercomponent_SignOut(props) {
     </DrawerContentScrollView>
   );
 }
-
-//
-//
 const DrawerNavigator = () => {
   const Drawer = createDrawerNavigator();
 

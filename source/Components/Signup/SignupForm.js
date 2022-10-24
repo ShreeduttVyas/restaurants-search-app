@@ -11,13 +11,9 @@ import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import Validator from "email-validator";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  onAuthStateChanged,
-} from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
-import createFirestore from "../../Hooks/useCreateUser";
+import { createFirestore } from "../../Hooks/useCreateUser";
 
 export default function Signupform({ navigation }) {
   const SignupFormSchema = Yup.object().shape({

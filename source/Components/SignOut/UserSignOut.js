@@ -1,5 +1,4 @@
 import { getAuth, signOut } from "firebase/auth";
-import { Alert } from "react-native";
 export const UserSignOut = () => {
   return new Promise(function (resolve, reject) {
     const auth = getAuth();

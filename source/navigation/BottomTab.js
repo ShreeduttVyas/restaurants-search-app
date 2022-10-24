@@ -3,7 +3,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import DrawerNavigator from "./DrawerNavigator";
 import ProfileScreen from "../screens/ProfileScreen";
-import FavouritesScreen from "../screens/FavouritesScreen";
+import FavoriteStack from "../navigation/FavoriteStack";
 import { StyleSheet, View, Text } from "react-native";
 import {
   MaterialCommunityIcons,
@@ -20,10 +20,10 @@ const BottomTab = () => {
         headerShown: false,
         tabBarShowLabel: false,
       }}
-      initialRouteName={"Home"}
+      initialRouteName={"Root"}
     >
       <BottomTab.Screen
-        name="Home"
+        name="Root"
         component={DrawerNavigator}
         options={{
           tabBarActiveTintColor: "rgb(241,186,87)",
@@ -50,8 +50,8 @@ const BottomTab = () => {
         }}
       />
       <BottomTab.Screen
-        name="Favorites"
-        component={FavouritesScreen}
+        name="FavoritesStack"
+        component={FavoriteStack}
         options={{
           tabBarActiveTintColor: "rgb(241,186,87)",
           tabBarIcon: ({ focused, color }) =>

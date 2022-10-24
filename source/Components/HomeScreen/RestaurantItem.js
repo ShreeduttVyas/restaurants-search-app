@@ -8,12 +8,24 @@ import {
 } from "../../Hooks/useCreateUser";
 import { getAuth } from "firebase/auth";
 
-function RestaurantItem({ restaurant, navigation, isFavourite }) {
+function RestaurantItem({ restaurant, navigation, isFavourite, StackTitle }) {
   const [fav, setFav] = useState(isFavourite);
+
   return (
     <View>
       <TouchableOpacity
-        onPress={() => navigation.navigate("Restaurant", { id: restaurant.id })}
+        onPress={() => {
+          if (StackTitle == "FavoriteStack") {
+            navigation.navigate("RestaurantfromFavorite", {
+              id: restaurant.id,
+            });
+          }
+          if (StackTitle == "SignedinStack") {
+            navigation.navigate("Restaurant", {
+              id: restaurant.id,
+            });
+          }
+        }}
         style={[styles.container, elevation]}
       >
         <Image source={{ uri: restaurant.image_url }} style={styles.image} />
@@ -35,15 +47,7 @@ function RestaurantItem({ restaurant, navigation, isFavourite }) {
               : DeleteFirestore_rid(user.uid, restaurant.id);
           }
         }}
-        style={{
-          position: "absolute",
-          right: 50,
-          bottom: 20,
-          height: 36,
-          width: 56,
-          alignItems: "center",
-          justifyContent: "center",
-        }}
+        style={styles.favouriteIcon}
       >
         <View>
           <MaterialCommunityIcons
@@ -91,6 +95,15 @@ const styles = StyleSheet.create({
   },
   money: {
     color: "gold",
+  },
+  favouriteIcon: {
+    position: "absolute",
+    right: 50,
+    bottom: 20,
+    height: 36,
+    width: 56,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 
